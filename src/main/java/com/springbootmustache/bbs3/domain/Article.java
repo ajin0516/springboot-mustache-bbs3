@@ -1,18 +1,25 @@
 package com.springbootmustache.bbs3.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Getter
+@Table(name = "article3")
+@NoArgsConstructor
 public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private
+    private Long id;
     private String title;
+    private String content;
 
+    public Article(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
