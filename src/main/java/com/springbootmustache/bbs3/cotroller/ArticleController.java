@@ -3,7 +3,6 @@ package com.springbootmustache.bbs3.cotroller;
 import com.springbootmustache.bbs3.domain.Article;
 import com.springbootmustache.bbs3.domain.dto.ArticleDto;
 import com.springbootmustache.bbs3.repository.ArticleRepository;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

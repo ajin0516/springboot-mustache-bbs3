@@ -10,5 +10,6 @@ spring:
     password: 1234
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: mysql
+    hibernate.ddl-auto: validate
