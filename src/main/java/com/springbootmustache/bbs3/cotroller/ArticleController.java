@@ -70,7 +70,8 @@ public class ArticleController {
             model.addAttribute("article", optionalArticle.get());
             return "articles/edit";
         }else {
-            model.addAttribute("message",String.format("%d가 없습니다",id));
+            // 에러 메세지 어떻게 나오게???
+            model.addAttribute("message",String.format("id %d번이 없습니다",id));
             return "articles/error";
         }
     }
@@ -78,7 +79,7 @@ public class ArticleController {
     @GetMapping("/{id}/delete")
     public String delete(@PathVariable Long id, Model model) {
         articleRepository.deleteById(id);
-        model.addAttribute("delete-message",String.format("%d가 지워졌습니다.",id));
+        model.addAttribute("delete-message",String.format("id %d번이 지워졌습니다.",id));
         return "redirect:/articles";
     }
 
