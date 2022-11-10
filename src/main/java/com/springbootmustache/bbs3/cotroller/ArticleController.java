@@ -33,7 +33,7 @@ public class ArticleController {
 
     @GetMapping("/new")
     public String createArticlePage(){
-        return "new";
+        return "articles/new";
     }
 
     @GetMapping("/{id}")
