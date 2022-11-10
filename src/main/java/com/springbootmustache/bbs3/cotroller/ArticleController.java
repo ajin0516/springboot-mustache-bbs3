@@ -24,7 +24,7 @@ public class ArticleController {
     public ArticleController(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;
     }
-    @GetMapping("/list")
+    @GetMapping("")
     public String listPage(Model model){
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles",articles);
@@ -41,23 +41,15 @@ public class ArticleController {
         Optional<Article> optionalArticle = articleRepository.findById(id);
         if(!optionalArticle.isEmpty()){
             model.addAttribute("article",optionalArticle.get());
-            return "/articles/show";
+            return "articles/show";
         }else {
-            return "/articles/error";
+            return "articles/error";
         }
-    }
-
-    @PostMapping("/{id}/update")
-    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
-        log.info("title:{} content:{}", articleDto.getTitle(), articleDto.getContent());
-        Article article = articleRepository.save(articleDto.toEntity());
-
-        model.addAttribute("article",article);
-        return String.format("redirect:/articles/%d",article.getId());
     }
 
     @PostMapping("")
     public String createArticle(ArticleDto articleDto){
+        log.info(articleDto.getTitle());
         Article saveArticle = articleRepository.save(articleDto.toEntity());
         return String.format("redirect:/articles/%d",saveArticle.getId());
     }
@@ -73,6 +65,15 @@ public class ArticleController {
             model.addAttribute("message",String.format("id %d번이 없습니다",id));
             return "articles/error";
         }
+    }
+
+    @PostMapping("/{id}/update")
+    public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
+        log.info("title:{} content:{}", articleDto.getTitle(), articleDto.getContent());
+        Article article = articleRepository.save(articleDto.toEntity());
+
+        model.addAttribute("article",article);
+        return String.format("redirect:/articles/%d",article.getId());
     }
 
     @GetMapping("/{id}/delete")
