@@ -1,10 +1,10 @@
 {{>layouts/header}}
-
 <table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">Id</th>
-        <th scope="col">이름</th>
+        <th scope="col">병원명</th>
+        <th scope="col">전화번호</th>
         <th scope="col">도로명주소</th>
     </tr>
     </thead>
@@ -12,17 +12,19 @@
     {{#hospitals}}
         <tr>
             <th>{{id}}</th>
-            <td>
-                {{#hospitalName}}{{hospitalName}}{{/hospitalName}}
-                {{^hospitalName}}^{{/hospitalName}}
-            </td>
+            <td>{{hospitalName}}</td>
+            <td>{{phone}}</td>
             <td>{{roadNameAddress}}</td>
         </tr>
     {{/hospitals}}
     </tbody>
 </table>
 <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="?page={{previous}}"/>Previous</li>
-    <li class="page-item"><a class="page-link" href="?page={{next}}"/>Next</li>
+    <li class="page-item"><a class="page-link" href="?page={{previous}}"/>Previous
+        </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="?page={{next}}"/>Next
+        </a>
+    </li>
 </ul>
 {{>layouts/footer}}
