@@ -1,18 +1,22 @@
 {{>layouts/header}}
+<p align="center">
+    <a href="/hospital">
+        <img src="https://mblogthumb-phinf.pstatic.net/MjAyMDA2MTlfMjIg/MDAxNTkyNTQ1NTMyMjA2.8iYQjV4RdNDIXwHXBdl5nmEQdihS3JdPyQge0LKL6GQg.1gqUqFCbSxhMY3QkVr_9j399s8U4zgM_hYCQ8xDY63cg.JPEG.2eemh/%EC%8A%AC%EC%9D%982.jpg?type=w800" alt="슬기로운 의사생활" height = 300 width=400  />    </a>
+</p>
 <table class="table table-striped">
     <thead>
     <tr>
         <th scope="col">Id</th>
         <th scope="col">병원명</th>
         <th scope="col">전화번호</th>
-        <th scope="col">도로명주소</th>
+        <th scope="col">병원소재지</th>
     </tr>
     </thead>
     <tbody>
     {{#hospitals}}
         <tr>
             <th>{{id}}</th>
-            <td>{{hospitalName}}</td>
+            <td><a href="/hospitals/{{id}}"> {{hospitalName}}</a></td>
             <td>{{phone}}</td>
             <td>{{roadNameAddress}}</td>
         </tr>
@@ -20,6 +24,7 @@
     </tbody>
 </table>
 <ul class="pagination justify-content-center">
+
     <li class="page-item"><a class="page-link" href="?page={{previous}}"/>Previous
         </a>
     </li>

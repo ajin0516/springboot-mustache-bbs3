@@ -1,0 +1,42 @@
+{{>layouts/header}}
+<div class="card" style="width: 18rem;">
+    {{#hospital}}
+        <div class="card" style="width: 50rem;">
+            <div class="alert alert-warning" role="alert">
+                <h3> {{hospitalName}} </h3>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">번호 : {{id}}</h6>
+                <p class="card-text">전화번호 : {{phone}}</p>
+                <p class="card-text">{{openServiceName}}</p>
+                <p class="card-text">개방자치단체코드 : {{openLocalGovernmentCode}}</p>
+                <p class="card-text">관리번호 : {{managementNumber}}</p>
+                <p class="card-text">인허가날짜 : {{licenseDate}}</p>
+                <p class="card-text">영업상태(1: 영업/정상 2: 휴업 3: 폐업 4: 취소/말소영업상태구분) : {{businessStatus}}</p>
+                <p class="card-text">영업상태코드(2:휴업 3:폐업 13 영업중) : {{businessStatusCode}}</p>
+                <p class="card-text">도로명 주소 : {{roadNameAddress}}</p>
+                <p class="card-text">전체 주소 : {{fullAddress}}</p>
+                <p class="card-text">업태구분명 : {{businessTypeName}}</p>
+                <p class="card-text">의료인 수 : {{healthcareProviderCount}}</p>
+                <p class="card-text">입원실 수 : {{patientRoomCount}}</p>
+                <p class="card-text">병상 수 : {{totalNumberOfBeds}}</p>
+                <p class="card-text">총 면적 : {{totalAreaSize}}</p>
+            </div>
+        </div>
+        <div class="card" style="width: 50rem;">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label>댓글 작성</label>
+                        <textarea class="form-control" id="comment-content" rows="3"></textarea>
+                    </div>
+                    <input type="hidden" id="comment-author" value="익명">
+                    <button type="button" class="btn btn-primary" id="comment-create-btn">등록</button>
+                </form>
+            </div>
+        </div>
+        <!-- ajax 통신을 위한 JS 추가 -->
+        <Script src="/js/app/comment.js"></script>
+    {{/hospital}}
+</div>
+{{>layouts/footer}}
