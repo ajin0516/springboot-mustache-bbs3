@@ -1,19 +1,18 @@
 package com.springbootmustache.bbs3.domain.dto;
 
-import com.springbootmustache.bbs3.domain.Article;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@ToString
-public class ArticleDto {
+@NoArgsConstructor
+@Builder
+public class ArticleResDto {
+
     private Long id;
     private String title;
     private String content;
 
-    public Article toEntity() {
-        return new Article(id,title, content);
-    }
 }

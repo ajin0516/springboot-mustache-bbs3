@@ -1,6 +1,6 @@
 package com.springbootmustache.bbs3.domain;
 
-import com.springbootmustache.bbs3.domain.dto.ArticleDto;
+import com.springbootmustache.bbs3.domain.dto.ArticleResDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Table(name = "article3")
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Article {
 
     @Id
@@ -24,9 +24,17 @@ public class Article {
     @Column
     private String content;
 
-    public static ArticleDto of(Article article){
-        return new ArticleDto(article.getId(),
-                article.getTitle(),
-                article.getContent());
+
+    /*
+    요청-> 디비저장 -> 응답
+    ArticleReqDto -> article(entity) -> ArticleResDto
+    Article(entity) -> ArticleResDto
+    안정성 보장
+
+
+     */
+    public static ArticleResDto of(Article article){
+        ArticleResDto articleResDto = new ArticleResDto(article.getId(), article.getTitle(), article.getContent());
+        return articleResDto;
     }
 }

@@ -33,6 +33,7 @@ public class HospitalService {
         return hospitalResponse;
 
 
+
 //        switch (hospital.getBusinessStatusCode()){
 //            case 13: hospitalResponse.setBusinessStatusName("영업중"); break;
 //            case 3: hospitalResponse.setBusinessStatusName("폐업"); break;
