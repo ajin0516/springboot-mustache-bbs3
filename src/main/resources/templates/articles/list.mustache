@@ -1,5 +1,4 @@
 {{>layouts/header}}
-
 <table class="table table-striped">
     <thead>
     <tr>
@@ -8,7 +7,7 @@
         <th scope="col">Content</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
     {{#articles}}
         <tr>
             <th>{{id}}</th>
@@ -18,7 +17,6 @@
     {{/articles}}
     </tbody>
 </table>
-
-<a href="/articles/new">new article</a>
-<a href="/articles">articles List</a>
+<a href="/articles/new">새 글 작성</a>
+<a href="/articles/list">글 목록</a>
 {{>layouts/footer}}

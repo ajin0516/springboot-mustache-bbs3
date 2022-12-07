@@ -4,6 +4,8 @@ import com.springbootmustache.bbs3.domain.Article;
 import com.springbootmustache.bbs3.domain.dto.ArticleReqDto;
 import com.springbootmustache.bbs3.domain.dto.ArticleResDto;
 import com.springbootmustache.bbs3.repository.ArticleRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -40,4 +42,9 @@ public class ArticleService {
 //                savedArticle.getTitle(),
 //                savedArticle.getContent());
 //    }
+
+    public Page<ArticleResDto> getAll(Pageable pageable) {
+        Page<Article> page = articleRepository.findAll(pageable);
+        return page.map(Article::of);
+    }
 }

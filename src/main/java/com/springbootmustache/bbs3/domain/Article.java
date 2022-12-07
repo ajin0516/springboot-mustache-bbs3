@@ -11,28 +11,29 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Table(name = "article3")
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
     private String title;
-    @Column
     private String content;
 
 
+    public Article(Long id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+    }
+
     /*
-    요청-> 디비저장 -> 응답
-    ArticleReqDto -> article(entity) -> ArticleResDto
-    Article(entity) -> ArticleResDto
-    안정성 보장
+        요청-> 디비저장 -> 응답
+        ArticleReqDto -> article(entity) -> ArticleResDto
+        Article(entity) -> ArticleResDto
+        안정성 보장
+      */
 
-
-     */
     public static ArticleResDto of(Article article){
         ArticleResDto articleResDto = new ArticleResDto(article.getId(), article.getTitle(), article.getContent());
         return articleResDto;

@@ -1,12 +1,13 @@
 package com.springbootmustache.bbs3.domain.dto;
 
 import com.springbootmustache.bbs3.domain.Article;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor
+@ToString
+@Setter
+
 public class ArticleReqDto {
 
     private Long id;
@@ -18,11 +19,9 @@ public class ArticleReqDto {
         this.title = title;
         this.content = content;
     }
-
     /*
-    reqdto -> entity로
+        reqdto -> entity로
      */
-
     public Article toEntity(){
         return new Article(id, title, content);
     }

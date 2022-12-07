@@ -25,12 +25,19 @@ public class ArticleRestController {
         return ResponseEntity.ok().body(articleById);
     }
 
-    // 요청 -> 컨트롤러 -> 서비스로직 //  -> 레파지토리 -> 디비
+    // 요청 -> 컨트롤러 -> 서비스로직 // -> 리파지토리 -> 디비
     @PostMapping("/post")
     public ResponseEntity<ArticleResDto> postArticleDto(@RequestBody ArticleReqDto articleReqDto) {
         ArticleResDto articleResDto = articleService.add(articleReqDto);
         log.info("글쓰기 요청. title ={}, content={}",articleReqDto.getTitle(),articleReqDto.getContent());
         return ResponseEntity.ok().body(articleResDto);
+    }
+
+    @PostMapping("/new")
+    public ResponseEntity<ArticleResDto> write(@RequestBody ArticleReqDto articleReqDto) {
+        log.info("글쓰기 요청 title={}, content={}", articleReqDto.getTitle(), articleReqDto.getContent());
+        ArticleResDto articleResponseDto = articleService.add(articleReqDto);
+        return ResponseEntity.ok().body(articleResponseDto);
     }
 
 }

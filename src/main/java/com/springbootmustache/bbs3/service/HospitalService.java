@@ -26,7 +26,7 @@ public class HospitalService {
         if (hospital.getBusinessStatusCode() == 13) {
             hospitalResponse.setBusinessStatusName("영업중");
         } else if (hospital.getBusinessStatusCode() == 3) {
-            hospitalResponse.setBusinessStatusName("페업");
+            hospitalResponse.setBusinessStatusName("폐업");
         }else{
             hospitalResponse.setBusinessStatusName(String.valueOf(hospital.getBusinessStatusCode()));
         }
