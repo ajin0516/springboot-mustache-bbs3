@@ -1,7 +1,6 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
-import com.springbootmustache.bbs3.domain.Article;
-import com.springbootmustache.bbs3.domain.entity.Hospital;
+import com.springbootmustache.bbs3.domain.Hospital;
 import com.springbootmustache.bbs3.repository.HospitalRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

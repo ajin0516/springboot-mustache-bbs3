@@ -1,4 +1,4 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
 
 import com.springbootmustache.bbs3.domain.dto.ArticleReqDto;

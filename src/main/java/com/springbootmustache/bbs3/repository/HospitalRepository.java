@@ -1,6 +1,6 @@
 package com.springbootmustache.bbs3.repository;
 
-import com.springbootmustache.bbs3.domain.entity.Hospital;
+import com.springbootmustache.bbs3.domain.Hospital;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
 import com.springbootmustache.bbs3.service.HospitalService;
@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

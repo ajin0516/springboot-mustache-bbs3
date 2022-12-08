@@ -1,7 +1,7 @@
 package com.springbootmustache.bbs3.service;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
-import com.springbootmustache.bbs3.domain.entity.Hospital;
+import com.springbootmustache.bbs3.domain.Hospital;
 import com.springbootmustache.bbs3.repository.HospitalRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +12,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
 
 

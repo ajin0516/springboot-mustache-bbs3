@@ -1,7 +1,6 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
 import com.springbootmustache.bbs3.domain.Article;
-import com.springbootmustache.bbs3.domain.dto.ArticleDto;
 import com.springbootmustache.bbs3.domain.dto.ArticleReqDto;
 import com.springbootmustache.bbs3.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.springbootmustache.bbs3.service;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
-import com.springbootmustache.bbs3.domain.entity.Hospital;
+import com.springbootmustache.bbs3.domain.Hospital;
 import com.springbootmustache.bbs3.repository.HospitalRepository;
 import org.springframework.stereotype.Service;
 

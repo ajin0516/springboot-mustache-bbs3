@@ -1,13 +1,9 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
-import com.springbootmustache.bbs3.domain.entity.Hospital;
-import com.springbootmustache.bbs3.repository.HospitalRepository;
 import com.springbootmustache.bbs3.service.HospitalService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/hospitals")

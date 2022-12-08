@@ -1,4 +1,4 @@
-package com.springbootmustache.bbs3.cotroller;
+package com.springbootmustache.bbs3.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springbootmustache.bbs3.domain.dto.ArticleReqDto;

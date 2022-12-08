@@ -1,4 +1,4 @@
-package com.springbootmustache.bbs3.domain.entity;
+package com.springbootmustache.bbs3.domain;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
 import lombok.AllArgsConstructor;
