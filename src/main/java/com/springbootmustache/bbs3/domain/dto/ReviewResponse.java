@@ -4,11 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
-public class UserJoinResponse {
+public class ReviewResponse {
 
-    private String userName;
-    private String email;
+    private String message;
 }

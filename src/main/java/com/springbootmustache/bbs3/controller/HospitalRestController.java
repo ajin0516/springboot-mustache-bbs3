@@ -15,12 +15,6 @@ public class HospitalRestController {
         this.hospitalService = hospitalService;
     }
 
-    //    private final HospitalRepository hospitalRepository;
-//
-//    public HospitalRestController(HospitalRepository hospitalRepository) {
-//        this.hospitalRepository = hospitalRepository;
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity<HospitalResponse> get(@PathVariable Integer id) { // ResponseEntity도 DTO타입
 //        Optional<Hospital> hospital = hospitalRepository.findById(id); // Entity

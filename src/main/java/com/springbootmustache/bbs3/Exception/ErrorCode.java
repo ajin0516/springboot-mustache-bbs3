@@ -10,7 +10,8 @@ public enum ErrorCode {
 
     DUPLICATED_USER_NAME(HttpStatus.CONFLICT, "userName은 중복입니다"),
     NOT_FOUND(HttpStatus.NOT_FOUND,"Not Found"),
-    INVALID_PASSWORD(HttpStatus.BAD_GATEWAY,"");
+    INVALID_PASSWORD(HttpStatus.BAD_GATEWAY,""),
+    USER_NOT_FOUNDED(HttpStatus.NOT_FOUND, "");
 
     private HttpStatus httpStatus;
     private String message;

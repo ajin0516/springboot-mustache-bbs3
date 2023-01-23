@@ -1,16 +1,11 @@
 package com.springbootmustache.bbs3.domain;
 
 import com.springbootmustache.bbs3.domain.dto.HospitalResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@EqualsAndHashCode
 public class Hospital {
 
     //  entity만들 때 적절한 타입 매핑 필요함
@@ -55,10 +51,12 @@ public class Hospital {
     @Column(name = "total_area_size")
     private float totalAreaSize;
 
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY)
+    private List<Review> reviews;
+
 
     // HospitalEntity를 HospitalResponse Dto로 만들어주는 부분
     public static HospitalResponse of(Hospital hospital) {
-
         return new HospitalResponse(hospital.getId(),
                 hospital.getRoadNameAddress(), hospital.getHospitalName(),
                 hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(), hospital.getBusinessTypeName(),

@@ -1,5 +1,6 @@
 package com.springbootmustache.bbs3.configuration;
 
+import com.springbootmustache.bbs3.domain.User;
 import com.springbootmustache.bbs3.service.UserService;
 import com.springbootmustache.bbs3.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
@@ -32,10 +33,6 @@ public class JwtTokenFilter extends OncePerRequestFilter { // 요청 할 때마�
         final String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION); // 헤더에서 꺼내기
         log.info("authorizationHeader={}",authorizationHeader);
 
-
-        String token = authorizationHeader.split(" ")[1];
-        log.info("token={}",token);
-
         // 권한 주거나 안주기(개찰구 역할)
 
         // 언제 막을까?
@@ -46,6 +43,8 @@ public class JwtTokenFilter extends OncePerRequestFilter { // 요청 할 때마�
             return;
         }
 
+        String token = authorizationHeader.split(" ")[1];
+        log.info("token={}",token);
         // 2 만료된 토큰일 떄
         if(JwtTokenUtil.isExpired(token, secretKey)){
             filterChain.doFilter(request,response);
@@ -55,6 +54,9 @@ public class JwtTokenFilter extends OncePerRequestFilter { // 요청 할 때마�
         // Token에서 userName 꺼내기
         String userName = JwtTokenUtil.getUserName(token, secretKey);
         log.info("userName={}",userName);
+
+        User user = userService.getUserByUserName(userName);
+        log.info("Token Filter userName:{}", userName);
 
 
         // 문 열어주기

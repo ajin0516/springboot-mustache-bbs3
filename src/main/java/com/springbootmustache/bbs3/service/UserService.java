@@ -35,7 +35,9 @@ public class UserService {
 //                .ifPresent((user) -> { throw new RuntimeException("해당 UserName이 중복됩니다");});
 
         userRepository.findByUserName(request.getUserName())
-                .ifPresent((user) -> { throw new HospitalReviewAppException(ErrorCode.DUPLICATED_USER_NAME, request.getUserName() + "은 중복입니다");});
+                .ifPresent((user) -> {
+                    throw new HospitalReviewAppException(ErrorCode.DUPLICATED_USER_NAME, request.getUserName() + "은 중복입니다");
+                });
 
 
         // 회원가입 save
@@ -53,15 +55,21 @@ public class UserService {
         // userName 있는지 확인
         User user = userRepository.findByUserName(userName)
                 .orElseThrow(
-                        () -> new HospitalReviewAppException(ErrorCode.NOT_FOUND, String.format("%s 은 잘못된 userName입니다",userName)));
+                        () -> new HospitalReviewAppException(ErrorCode.NOT_FOUND, String.format("%s 은 잘못된 userName입니다", userName)));
         // password 일치 여부
-        if(!(encoder.matches(password ,user.getPassword()))){
+        if (!(encoder.matches(password, user.getPassword()))) {
             throw new HospitalReviewAppException(ErrorCode.INVALID_PASSWORD, String.format("userName 또는 password가 잘못됐습니다."));
         }
         // 위 두개 확인 후 token 발행
-        log.info("secretKey={}",secretKey);
-        log.info("userName={}",userName);
+        log.info("secretKey={}", secretKey);
+        log.info("userName={}", userName);
 
-        return JwtTokenUtil.createToken(userName,secretKey ,expireTimeMs);
+        return JwtTokenUtil.createToken(userName, secretKey, expireTimeMs);
+    }
+
+    public User getUserByUserName(String userName) {
+        User user = userRepository.findByUserName(userName)
+                .orElseThrow(() -> new HospitalReviewAppException(ErrorCode.USER_NOT_FOUNDED, ""));
+        return user;
     }
 }
